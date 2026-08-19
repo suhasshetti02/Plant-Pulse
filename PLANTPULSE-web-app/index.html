@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CropCare</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  </head>
+
+  <body>
+
+    <header class="header">
+
+      <div class="left-btn" ><img id="left-menu-btn" src="images/menu.svg" alt=""></div>
+      <div class="logo">
+      </div>   
+
+      <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#about-us">About</a>
+        <a href="./Contact/contact.html">Contact</a>
+        <a id="language-select" class="trigger-drop"> Select language 
+
+            <ul class="drop">
+            <li class="options" onclick="changeLanguage('en')" value="en">English</li>
+            <li class="options" onclick="changeLanguage('kn')" value="kn">Kannada</li>
+            <li class="options" onclick="changeLanguage('hi')" value="hi">Hindi</li> 
+            <li class="options" onclick="changeLanguage('te')" value="te">Telugu</li>
+            <li class="options" onclick="changeLanguage('ta')" value="ta">Tamil</li>
+          </ul>
+        </select>
+      </a>
+      </nav>
+
+      <nav class="navbar-mobile">
+        
+        <a href="./Contact/contact.html">Contact</a>
+        <a id="language-select" class="trigger-drop"> Select language 
+
+            <ul class="drop">
+            <li class="options" onclick="changeLanguage('en')" value="en">English</li>
+            <li class="options" onclick="changeLanguage('kn')" value="kn">Kannada</li>
+            <li class="options" onclick="changeLanguage('hi')" value="hi">Hindi</li> 
+            <li class="options" onclick="changeLanguage('te')" value="te">Telugu</li>
+            <li class="options" onclick="changeLanguage('ta')" value="ta">Tamil</li>
+          </ul>
+        </select>
+      </a>
+      </nav>
+
+      <div class="fas fa-bars" id="menu-btn"></div>
+    </header>
+
+
+    <div id="left-menu" class="left-menu">
+      <div class="btn"><img src="images/white-back.png" alt=""></div>
+      <div class="menu-item"><a href="http://localhost:8501/" target="_blank">Crop Recommendations</a></div>
+      <div class="menu-item"><a href="http://localhost:8502/" target="_blank">Identify Diseases</a></div>
+      <div class="menu-item"><a href="weather-forecast/index.html">Weather Forecast</a></div>
+      <!-- <div class="menu-item">Fertilizer Recommendations</div>
+      <div class="menu-item">Latest News</div>
+      <div class="menu-item">Settings</div> -->
+    </div>
+
+
+    <section class="home" id="home">
+      <div class="content">
+
+        <div class="page" id="page">
+        <h1 id="pagetitle" class="pagetitle">YOUR SMART FARMING ASSISTANT</h1>
+        <div class="logo"> <img src="images/title.png" alt=""></div>
+        <p id="greeting " class="typewriter">Smart Crops, Smart Choices with CropCare!</p>
+      </div>
+      <!-- <button id="scrollButton" class="scrollButton"><a href="/"><img src="images/back.png" alt=""></a></button> -->
+        <div class="bot-icon"><a href="chatbot/index.html"><img class="chat-bot-img" src="images/chatbot.png" alt=""></a></div>
+      </div>
+      </div>
+
+      <div class="image">
+        <img class="bg-image" src="images/background1.jpg" alt="heading-image" />
+        <img class="bg-image-mobile" src="images/bg-mobile.webp" alt="heading-image" />
+      </div>
+    </section>
+
+
+
+
+    
+    <div id="whole" class="whole">
+      
+      <p class="about-heading" id="features">Features</p>
+      <div class="boxes">
+        <div class="box1"> 
+          <p class="box-head">Plant Recommendation System</p>
+        
+          <div ><img class="img1"src="images/plant-recomondation.jpg" alt="plant"></div>
+          <div class="box-content " id="box-content">
+            <p>
+              Our AI-powered Plant Recommendation System is designed to guide you in selecting 
+              the best crops to grow, tailored to your specific needs and environment.
+            </p>
+            <ul>
+              <li>
+                <strong>Personalized Recommendations</strong>: Based on your soil type, climate, 
+                and available resources, we suggest crops that thrive in your region.
+              </li>
+              <li>
+                <strong>Sustainable Choices</strong>: We prioritize crops that align with sustainable 
+                agriculture practices to ensure long-term soil health and environmental benefits.
+              </li>
+              <li>
+                <strong>Data-Driven Insights</strong>: Leveraging advanced analytics, we provide 
+                accurate and reliable crop recommendations backed by scientific research.
+              </li>
+            </ul>
+          </div>
+          
+
+          <a href="http://localhost:8501" class="home-btn" target="_blank "
+          >Try Now</a
+        ></div>
+        <div class="box2" >
+          <p class="box-head">Crop Disease Detection System</p>
+          <div ><img class="img2"src="images/plant-desease.jpg" alt="plant"></div>
+
+          <div class="box-content" id="box-content2">
+            <p>
+              Our AI-powered Crop Disease Detection System helps farmers identify and address crop 
+              diseases promptly, ensuring healthy yields and reduced losses.
+            </p>
+            <ul>
+              <li>
+                <strong>Early Detection</strong>: Identify potential diseases in crops at an early stage 
+                using advanced image recognition technology.
+              </li>
+              <li>
+                <strong>Accurate Diagnosis</strong>: Receive precise information about the type of disease 
+                affecting your crops, along with actionable solutions.
+              </li>
+              <li>
+                <strong>Accessible and Easy to Use</strong>: Simply upload images of your crops, and our system 
+                will analyze and provide instant feedback.
+              </li>
+              <li>
+                <strong>Tailored Advice</strong>: Get disease management tips based on your specific crop 
+                and environmental conditions.
+              </li>
+            </ul>
+          </div>
+          
+
+        <a href="http://localhost:8502" class="home-btn" target="_blank "
+          >Try Now</a
+          
+          ></div></div>
+
+    <section class="features" >
+     
+
+      <div class="row">
+
+        <div class="card">
+        <div class="image">
+          <img
+            src="images/weather.jpg"
+            alt="crop-planning"
+            class="rounded-corner-image"
+          />
+        </div>
+
+        <div class="content">
+          <h1>weather Forecast</h1>
+          <p id="feature-para1">
+            Plan Your Farming With Precision! Check Real-Time Weather Insights
+            On Temperature, Humidity, And More. Integrated With Our
+            Crop-Prediction Model For Optimal Decisions. Explore Historical
+            Data, Get Alerts, And Access Educational Resources.
+          </p>
+          <a href="weather-forecast/index.html" class="all-btn">more info</a>
+        </div>
+      </div>
+
+        <div class="card">
+        <div class="image">
+          <img
+            src="images/crop-planning.jpg"
+            alt="crop-planning"
+            class="rounded-corner-image"
+          />
+        </div>
+
+        <div class="content">
+          <h1>Smart Crop Planning</h1>
+          <p id="feature-para2">
+            Harness the power of data analysis to predict crop suitability,
+            providing insights into optimal cultivation conditions. CropCare
+            optimizes farming decisions based on comprehensive factors like soil
+            quality, weather, and more.
+          </p>
+          <a href="http://localhost:8501/" class="all-btn">more info</a>
+        </div>
+        </div>
+        
+
+
+        <div class="card">
+        <div class="image">
+          <img
+            src="images/desease-dect.jpeg"
+            alt="Disease-Detection"
+            class="rounded-corner-image"
+          />
+        </div>
+
+        <div class="content">
+          <h1>Plant Disease Identification</h1>
+          <p id="feature-para3">
+            Assist farmers in detecting plant diseases by enabling image
+            uploads, utilizing this analysis for prompt and precise
+            identification, enhancing farming efficiency and crop management.
+          </p>
+          <a href="#" class="all-btn">more info</a>
+        </div>
+        </div>
+        
+
+        <div class="card">
+        <div class="image">
+          <img
+            src="images/smartfarming.jpeg"
+            alt="ranked-recommendations"
+            class="rounded-corner-image"
+          />
+        </div>
+
+        <div class="content">
+          <h1>Smart Farming, Simple Guidance</h1>
+          <p id="feature-para4">
+            Smart Crop Guide offers a simple, step-by-step plan for growing
+            crops. It provides expert planting tips, tracks growth stages, and
+            sends watering reminders. The app also gives pest control advice,
+            harvest timing, weather updates, and fertilizer recommendations to
+            ensure healthy crops.
+          </p>
+
+          <a href="./chatbot/index.html" class="all-btn">more info</a>
+        </div>
+        </div>
+        
+
+       
+
+        <div class="card">        
+        <div class="image">
+          <img
+            src="images/modern-farm.jpg"
+            alt="modern-farms"
+            class="rounded-corner-image"
+          />
+        </div>
+
+        <div class="content">
+          <h1>Innovations for Modern Farms</h1>
+          <p id="feature-para5">
+            Smart Crop Tech, Precision Farming, and Customizable Solutions for
+            Sustainable and Efficient Agriculture!
+          </p>
+          <a href="#" class="all-btn">more info</a>
+        </div>
+        </div>
+
+        
+       
+
+
+      </div>
+    </section>
+
+   
+     <div class="about-us" id="about-us" >
+      <p class="about-heading">About US</p>
+      <p class="about-para" id="about-para">Welcome to PlantPulse, a comprehensive platform dedicated to empowering farmers with AI-driven solutions for sustainable agriculture. Our system provides accurate plant disease detection, tailored crop recommendations, and effective fertilizer suggestions, helping farmers make informed decisions to maximize productivity and promote eco-friendly practices.</p>
+
+      <div class="about-boxes">
+       <div class="about-box">
+        <img src="./images/book-black.png" alt="">
+        <p class="about-box-head">MISSION</p>
+        <div class="line"></div>
+        <p class="about-box-para" id="about-box-para">Our mission is to enhance sustainable farming with AI-powered plant recommendations and disease detection, promoting productivity and eco-friendly practices</p>
+         </div>
+       <div class="about-box">
+        <img src="./images/earth-black.png" alt="">
+        <p class="about-box-head">VISION</p>
+        <div class="line"></div>
+        <p class = "about-box-para" id="about-box-para1">Our vision is to revolutionize agriculture by leveraging AI for smarter plant management, fostering sustainable and eco-friendly farming practices worldwide</p>
+ 
+         </div>
+       <div class="about-box">
+        <img src="./images/pen-black.png" alt="">
+        <p class="about-box-head"> ACHIEVEMENTS</p>
+        <div class="line"></div>
+        <p class="about-box-para" id="about-box-para2">We developed an AI system for plant recommendations and disease detection, boosting productivity and promoting sustainable farming</p>
+ 
+         </div>
+      </div>
+     </div>
+
+     <!-- <div class="footer-box">
+      <p class="footer-text">© Copyright – All Rights Reserved Team PlantPulse</p>
+     </div> -->
+
+
+    
+
+    
+
+   
+      <script src="script.js"></script>
+    </chat>
+
+    
+
+    <script src="js/main.js"></script>
+    <script>
+      // TODO: Add your Google Cloud Translation API Key here to enable multilingual support
+      const APIKey = 'YOUR_GOOGLE_TRANSLATE_API_KEY';
+      const contentIds = ['pagetitle', 'greeting' ,'feature-para','feature-para1','feature-para2','feature-para3','feature-para4','feature-para5','feature-para6', 'box-content','box-content2','about-para', 'about-box-para', 'about-box-para1', 'about-box-para2'];
+  
+      function changeLanguage(selectedLanguage) {
+
+    contentIds.forEach(contentId => {
+        const element = document.getElementById(contentId);
+        if (element) {
+            const text = element.innerText;
+            translateText(text, selectedLanguage, contentId);
+        }
+    });
+}
+  
+      function translateText(text, targetLanguage, contentId) {
+          const url = `https://translation.googleapis.com/language/translate/v2?key=${APIKey}`;
+          const data = {
+              q: text,
+              target: targetLanguage
+          };
+  
+          fetch(url, {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data)
+          })
+          .then(response => response.json())
+          .then(data => {
+              const translatedText = data.data.translations[0].translatedText;
+              document.getElementById(contentId).innerText = translatedText;
+          })
+          .catch(error => {
+              console.error('Error translating text:', error);
+          });
+      }
+  
+      window.onload = changeLanguage;
+  </script>
+  
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</div>  
+</body>
+</html>

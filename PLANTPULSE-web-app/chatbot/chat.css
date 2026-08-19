@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    /* font-family: Arial, sans-serif; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.container{
+    border-radius: 10px;
+    display: flex;
+    
+    height: 46vw;
+    background: #fff;
+    width: 35vw;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+.chat-container {
+    
+    margin-top: 2rem;
+    max-height: 30vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    padding-bottom: 6rem;
+    position: relative;
+    overflow-y: auto;
+    
+}
+
+
+
+.mess-block{
+    height: 0vw;
+}
+
+.chat-header {
+    border-bottom-left-radius: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed ;
+    width:32rem;
+    height: 3rem;
+    left: 32.59%;
+    
+    top: 3%;
+    background: #fff;
+    border-bottom: 0.3px solid rgba(6, 16, 32, 0.741);
+
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: #02022e;
+    padding: 10px;
+    text-align: center;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 10px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    font-family: 'Roboto Mono';
+}
+
+.chatbox{
+    position: fixed;
+    width: 30vw;
+    height: 6rem;
+    z-index: 100;
+    background: #fff;
+    bottom: 3%;
+    left: 35%;
+    border-radius: 10px;
+}
+
+
+.chat-input {
+    background: #fff;
+    font-family: "Roboto", serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    position: fixed;
+    z-index: 100;
+    bottom: 5%;
+    margin-left:1.2rem ;
+    border: 0.2px solid black;
+    width: 25rem;
+    border-radius: 10px;
+}
+
+.chat-input input {
+    font-family: "Roboto", serif;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #fff;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+.chat-input button {
+    padding: 10px 15px;
+    border: none;
+    background: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.message.user {
+    background: #007bff;
+    color: #fff;
+    align-self: flex-end;
+}
+
+.message.bot {
+    background: #f1f1f1;
+    color: #333;
+    align-self: flex-start;
+}
+
+.send-btn{
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+
+.back-btn{
+    position: fixed;
+    left: 2%;
+    top: 2%;
+    cursor: pointer;
+}
+.back-btn img{
+    height: 25px;
+    width: 25px;
+}
+
+.container a{
+    text-decoration: none;
+    color: black;
+}
+
+
+@media (min-width: 320px) and (max-width: 480px){
+    .container{
+        height: 100rem;
+        width: 100%;
+    }
+
+    .chat-header{
+        left: 3%;
+        top: 0;
+        width:22rem;
+    }
+
+    .chat-input{
+        left: 2%;
+        width: 20rem;
+    }
+
+    .chat-container{
+        left: 0;
+        height: 50%;
+        min-height: 60rem;
+        width: 40rem;
+        display: block;
+    }
+
+    .chat-box{
+        max-width: 40rem;
+        margin-top: 25rem;
+        height: 10%;
+        left: 0;
+        bottom: 10%;
+    }
+
+    .chatbox{
+        width: 50rem;
+        left: 0;
+        height: 5rem;
+    }
+
+    .back-btn{
+        z-index: 10;
+        top: 3%;
+        left: 3%;
+    }
+}

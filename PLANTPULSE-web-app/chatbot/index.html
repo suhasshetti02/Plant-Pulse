@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="chat.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    
+    <div class="container">
+        <a href="../index.html"><div class="back-btn"><img src="../images/back.png" alt=""></div></a>
+        
+    <form class="chat-container" onsubmit="sendMessage()">
+        <div class="chat-header">Chatbot</div>
+        <div class="chat-box">
+            <p class="chat-messages" id="chatMessages"></p>
+        </div> </form>
+
+        <div class="chatbox">
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Type a message..." />
+            
+            <img class="send-btn" src="../images/send-button.png" onclick="sendMessage()"></img>
+        </div></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

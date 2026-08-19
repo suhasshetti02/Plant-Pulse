@@ -1,216 +1,140 @@
-# 🌿 PLANT PULSE — Smart Farming Assistant
+# 🌿 Plant Pulse — Smart Farming Assistant
 
 <p align="center">
   <img src="PLANTPULSE-web-app/images/title.png" alt="Plant Pulse Logo" width="300"/>
 </p>
 
 <p align="center">
-  <b>An AI-powered platform for smart, sustainable agriculture</b><br/>
-  Crop Recommendations · Plant Disease Detection · Weather Forecasting · AI Chatbot
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.12-blue?logo=python" />
-  <img src="https://img.shields.io/badge/TensorFlow-2.16+-orange?logo=tensorflow" />
-  <img src="https://img.shields.io/badge/Streamlit-1.23+-red?logo=streamlit" />
-  <img src="https://img.shields.io/badge/Gemini-1.5Flash-green?logo=google" />
-  <img src="https://img.shields.io/badge/License-MIT-yellow" />
+  <b>An AI-powered platform for smart, sustainable agriculture</b>
 </p>
 
 ---
 
-## 📖 Overview
+## 1. Short Description
+**Plant Pulse** is an AI-driven agricultural platform that empowers farmers with machine learning-based crop recommendations, CNN-based plant disease detection, real-time weather forecasting, and an integrated generative AI chatbot for tailored farming advice.
 
-**Plant Pulse** is a comprehensive AI-driven smart farming platform that empowers farmers with three intelligent tools:
+## 2. Problem
+Farmers often lack access to localized, data-driven agricultural insights. Traditional methods of selecting crops based on soil conditions or diagnosing plant diseases are prone to error, which leads to suboptimal yields and preventable crop losses. Additionally, gathering accurate weather and actionable advice usually requires consulting multiple fragmented sources.
 
-- 🌾 **Crop Recommendation System** — Predicts the best crop to grow based on soil and climate data using Machine Learning
-- 🔬 **Plant Disease Identification** — Detects plant diseases from leaf images using a deep learning CNN model
-- 🌐 **CropCare Web Portal** — A full-featured website integrating weather forecasts, an AI chatbot, agriculture news, and crop guides
+## 3. Solution
+Plant Pulse centralizes these solutions into a single, accessible platform. By combining traditional machine learning (Random Forest) for tabular soil data and deep learning (Convolutional Neural Networks) for image classification, the platform provides immediate, highly accurate answers. It complements these AI insights with a web portal featuring real-time external APIs for weather, news, and conversational guidance.
 
-> 📄 This project is accompanied by an **IEEE Research Paper**:  
-> *Smart Crop Recommendation System with Plant Disease Identification*
+## 4. Features
+- **🌾 Crop Recommendation System:** Input 7 soil and climate parameters to predict the best crop using a Random Forest model.
+- **🔬 Plant Disease Identification:** Upload an image of a leaf to detect diseases across 38 distinct classes using a pre-trained Keras CNN.
+- **🤖 AI Farming Chatbot:** Ask conversational farming questions powered by the Google Gemini 1.5 Flash API.
+- **🌤️ Real-Time Weather:** Get live localized weather forecasts via the OpenWeatherMap API.
+- **📰 Agricultural News:** Fetch crop-specific agricultural news via NewsAPI.
 
----
+## 5. Tech Stack
+- **Frontend:** HTML5, CSS3, Vanilla JavaScript, Bootstrap 5
+- **Machine Learning UI:** Python 3.12, Streamlit
+- **Model Training / Inference:** scikit-learn (Random Forest), TensorFlow/Keras (CNN), Pandas, NumPy
+- **APIs:** Google Gemini (LLM), OpenWeatherMap (Weather), NewsAPI (News), Google Cloud Translation (Multilingual)
 
-## 🗂️ Project Structure
+## 6. Architecture
+The architecture is completely decoupled for modular development:
+- **PLANTPULSE-web-app:** A static HTML/JS frontend that acts as a central hub and directly calls external APIs (Weather, Chatbot, Translate).
+- **CROP-RECOMMENDATION:** A standalone Streamlit web application that handles tabular ML classification.
+- **PLANT-DISEASE-IDENTIFICATION:** A standalone Streamlit web application that handles image processing and CNN inference.
 
-```
-PLANT PULSE/
-├── 📂 CROP-RECOMMENDATION/          # ML-based crop prediction (Streamlit app)
-│   ├── app.py                       # Main Streamlit app
-│   ├── Crop_reccom(final).ipynb     # Model training notebook
-│   ├── Crop_recommendation.csv      # Dataset (7 features, 22 crops)
-│   ├── RandomForest.pkl             # Trained Random Forest model
-│   ├── DecisionTree.pkl             # Trained Decision Tree model
-│   ├── KNeighborsClassifier.pkl     # Trained KNN model
-│   ├── NBClassifier.pkl             # Trained Naïve Bayes model
-│   ├── XGBoost.pkl                  # Trained XGBoost model
-│   └── requirements.txt
-│
-├── 📂 PLANT-DISEASE-IDENTIFICATION/ # CNN-based disease detection (Streamlit app)
-│   ├── main.py                      # Main Streamlit app
-│   ├── Train_plant_disease.ipynb    # CNN training notebook
-│   ├── Test_plant_disease.ipynb     # Model evaluation notebook
-│   ├── trained_plant_disease_model.keras  # Pre-trained CNN (~90MB)
-│   ├── training_hist.json           # Training accuracy/loss history
-│   ├── test/                        # Sample test images
-│   └── requirements.txt
-│
-├── 📂 PLANTPULSE-web-app/           # Static CropCare web portal
-│   ├── index.html                   # Main landing page
-│   ├── css/style.css
-│   ├── js/main.js
-│   ├── chatbot/                     # AI chatbot (Gemini API)
-│   ├── weather-forecast/            # Real-time weather (OpenWeatherMap)
-│   ├── explore/                     # Crop parameter explorer
-│   ├── guide/                       # Crop cultivation guide
-│   ├── News/                        # Agriculture news
-│   └── Contact/                     # Contact form
-│
-└── 📄 IEEE_Paper_Smart_Crop_Recommendation_System_with_Plant_Disease_Identification.pdf
-```
+The central web portal links out to the two local Streamlit servers (`localhost:8501` and `localhost:8502`).
 
----
+## 7. Screenshots
+*(Add real project screenshots here)*
+- `Screenshot 1: Web Portal Dashboard`
+- `Screenshot 2: Crop Recommendation Input/Output`
+- `Screenshot 3: Plant Disease Detection Result`
 
-## ✨ Features
+## 8. Demo
+*Currently running locally. (Link to video demo here if available)*
 
-### 🌾 1. Crop Recommendation System
-- Input **7 soil & climate parameters**: Nitrogen, Phosphorus, Potassium, Temperature, Humidity, pH, Rainfall
-- Get instant crop predictions using a **Random Forest ML model**
-- Receive detailed **growing guidance** powered by **Google Gemini 1.5 Flash**
-- View **latest agriculture news** via NewsAPI
-- **Multilingual support**: English, Kannada, Hindi, Telugu, Tamil
+## 9. Installation
+**Prerequisites:** Python 3.10+, Git.
 
-### 🔬 2. Plant Disease Identification
-- Upload a leaf image and detect diseases instantly
-- Powered by a **TensorFlow/Keras CNN** trained on the PlantVillage dataset
-- Classifies **38 disease/health classes** across 14 crop types:
-  - Apple, Blueberry, Cherry, Corn, Grape, Orange, Peach, Pepper, Potato, Raspberry, Soybean, Squash, Strawberry, Tomato
-
-### 🌐 3. CropCare Web Portal
-| Feature | Description |
-|---|---|
-| 🤖 AI Chatbot | Farming Q&A powered by Gemini 1.5 Flash |
-| 🌤️ Weather Forecast | Real-time weather via OpenWeatherMap API |
-| 🌱 Crop Explorer | Browse soil/climate data for 22 crops |
-| 📰 News | Latest agriculture news |
-| 📋 Crop Guide | Step-by-step cultivation guide |
-| 🌍 Multilingual | 5 language support via Google Translate |
-
----
-
-## 🛠️ Tech Stack
-
-| Category | Technologies |
-|---|---|
-| **ML / AI** | scikit-learn, XGBoost, TensorFlow 2.x, Keras |
-| **Backend** | Python 3.12, Streamlit |
-| **Data** | NumPy, Pandas, Matplotlib, Seaborn |
-| **Image Processing** | Pillow (PIL), OpenCV |
-| **Frontend** | HTML5, CSS3, Vanilla JavaScript, Bootstrap 5, Font Awesome, Axios |
-| **External APIs** | Google Gemini 1.5 Flash, OpenWeatherMap, NewsAPI, Google Translate |
-| **Dev Tools** | Jupyter Notebook, VS Code |
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Python 3.10 – 3.12
-- pip
-- Git
-
-### 1. Clone the Repository
 ```bash
 git clone https://github.com/suhasshetti02/Plant-Pulse.git
 cd Plant-Pulse
 ```
 
-### 2. Run the Crop Recommendation App
+## 10. Environment Variables
+For security, API keys are not included in the repository. You must provide your own keys to run the application fully.
+
+1. **Python Backend (Crop Recommendation)**
+Create a `.env` file in the `CROP-RECOMMENDATION/` directory:
+```env
+GEMINI_API_KEY="your_gemini_api_key_here"
+NEWS_API_KEY="your_newsapi_key_here"
+```
+
+2. **Frontend Web Portal**
+Open the following files and replace the placeholder text with your actual API keys:
+- `PLANTPULSE-web-app/index.html`: Add your Google Translate API Key on line 331.
+- `PLANTPULSE-web-app/chatbot/app.js`: Add your Gemini API Key on line 3.
+- `PLANTPULSE-web-app/weather-forecast/script.js`: Add your OpenWeatherMap API Key on line 16.
+
+## 11. Running Locally
+You will need to start the two Streamlit servers and open the static HTML file.
+
+**Start Crop Recommendation:**
 ```bash
 cd CROP-RECOMMENDATION
 pip install -r requirements.txt
 streamlit run app.py
 ```
-> App runs at **http://localhost:8501**
 
-### 3. Run the Plant Disease Detection App
+**Start Plant Disease Identification:**
 ```bash
 cd PLANT-DISEASE-IDENTIFICATION
 pip install -r requirements.txt
 streamlit run main.py
 ```
-> App runs at **http://localhost:8502**
 
-### 4. Open the Web Portal
-Simply open `PLANTPULSE-web-app/index.html` in your browser.  
-*(Ensure both Streamlit apps are running for full functionality)*
+**Open the Web Portal:**
+Open `PLANTPULSE-web-app/index.html` in any modern web browser.
 
----
+## 12. Testing
+Testing is currently manual. Navigate through the web portal to the respective Streamlit apps and verify inputs and outputs.
+- Test data for Crop Recommendation can be sourced from `CROP-RECOMMENDATION/Crop_recommendation.csv`.
+- Test images for Disease Identification can be found in `PLANT-DISEASE-IDENTIFICATION/test/`.
 
-## 📊 Dataset
+## 13. Project Structure
+```text
+PLANT PULSE/
+├── CROP-RECOMMENDATION/          # Streamlit app for ML crop prediction
+│   ├── app.py                    
+│   └── Crop_recommendation.csv   # Dataset used for training
+├── PLANT-DISEASE-IDENTIFICATION/ # Streamlit app for CNN disease detection
+│   ├── main.py                   
+│   └── trained_plant_disease_model.keras
+├── PLANTPULSE-web-app/           # Static Hub web portal
+│   ├── index.html                
+│   ├── chatbot/                  
+│   └── weather-forecast/         
+└── README.md
+```
 
-**Crop Recommendation Dataset** (`Crop_recommendation.csv`)
-- **2,200 records**, 22 crop classes
-- Features: N, P, K, Temperature, Humidity, pH, Rainfall
+## 14. API Information
+The project consumes external APIs using the following endpoints:
+- **Gemini API:** `generativelanguage.googleapis.com` (POST)
+- **OpenWeatherMap API:** `api.openweathermap.org/data/2.5/weather` (GET)
+- **NewsAPI:** `newsapi.org/v2/everything` (GET)
+- **Google Translate API:** `translation.googleapis.com` (POST)
 
-**Plant Disease Dataset**
-- Based on the [PlantVillage Dataset](https://www.kaggle.com/datasets/vipoooool/new-plant-diseases-dataset)
-- 38 classes, 14 crop types
+*Note: No internal APIs are exposed. The ML models are served directly via Streamlit UIs.*
 
----
+## 15. Database Information
+There is no traditional relational (SQL) or NoSQL database in this project. The system relies entirely on a flat CSV file (`Crop_recommendation.csv`) for the Crop Recommendation model.
 
-## 🤖 ML Models
+## 16. Limitations
+- **Decoupled Architecture:** The system relies on three separately running processes rather than a unified backend.
+- **Model Training Overheads:** The Random Forest model currently trains dynamically on script load rather than loading a serialized model.
+- **Hardcoded Routes:** The central hub requires the Streamlit apps to run on exactly ports 8501 and 8502.
 
-| Model | Task | Accuracy |
-|---|---|---|
-| Random Forest | Crop Recommendation | ~99% |
-| Decision Tree | Crop Recommendation | ~98% |
-| K-Nearest Neighbors | Crop Recommendation | ~97% |
-| Naïve Bayes | Crop Recommendation | ~99% |
-| XGBoost | Crop Recommendation | ~99% |
-| CNN (Keras) | Disease Detection | ~95%+ |
-
----
-
-## 🌍 Multilingual Support
-
-The platform supports **5 languages**:
-
-| Language | Code |
-|---|---|
-| English | `en` |
-| Kannada | `kn` |
-| Hindi | `hi` |
-| Telugu | `te` |
-| Tamil | `ta` |
-
----
-
-## 📄 Research Paper
-
-This project is backed by an IEEE research paper:
-
-> **"Smart Crop Recommendation System with Plant Disease Identification"**  
-> Presented as part of academic research in AI-driven precision agriculture.
-
-📎 See: `IEEE_Paper_Smart_Crop_Recommendation_System_with_Plant_Disease_Identification.pdf`
+## 17. Future Improvements
+- Centralize the architecture by replacing Streamlit with a unified backend (e.g., FastAPI) and exposing the ML models via REST APIs.
+- Pre-load and serialize the `RandomForestClassifier` using `joblib` to speed up initial inference times.
+- Move all client-side API requests (Weather, Chatbot) to the backend to completely obscure API keys from the browser.
 
 ---
-
-## 👥 Team
-
-**Team PlantPulse**  
-Built with 💚 for sustainable smart farming.
-
----
-
-## 📜 License
-
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
-
----
-
-<p align="center">
-  © 2024 Team PlantPulse — All Rights Reserved
-</p>
+*Developed by Team PlantPulse.*
