@@ -1,140 +1,77 @@
-# 🌿 Plant Pulse — Smart Farming Assistant
+# Plant Pulse — Smart Farming Assistant
 
-<p align="center">
-  <img src="PLANTPULSE-web-app/images/title.png" alt="Plant Pulse Logo" width="300"/>
-</p>
+Plant Pulse is a collection of connected, locally run agriculture tools: a static web portal, a crop-recommendation Streamlit application, and a plant-disease identification Streamlit application.
 
-<p align="center">
-  <b>An AI-powered platform for smart, sustainable agriculture</b>
-</p>
+> **Project status:** Academic prototype. The portal links to two separate Streamlit services; it is not a single unified web application or a deployed production API.
 
----
+## Features present in the repository
 
-## 1. Short Description
-**Plant Pulse** is an AI-driven agricultural platform that empowers farmers with machine learning-based crop recommendations, CNN-based plant disease detection, real-time weather forecasting, and an integrated generative AI chatbot for tailored farming advice.
+- **Crop recommendation:** a scikit-learn Random Forest classifier trained from `Crop_recommendation.csv` using seven input features: N, P, K, temperature, humidity, pH, and rainfall.
+- **Plant disease classification:** a TensorFlow/Keras model loaded from `trained_plant_disease_model.keras`; the Streamlit interface maps model output to 38 plant/disease labels.
+- **Crop guidance and news:** optional Gemini-generated growing guidance and NewsAPI article lookup in the crop-recommendation app.
+- **Language selection / translation helpers:** translation support is present in the crop-recommendation code.
+- **Web portal:** static HTML, CSS, and JavaScript pages link to the two Streamlit applications and include guide, explore, chatbot, news, and related sections.
 
-## 2. Problem
-Farmers often lack access to localized, data-driven agricultural insights. Traditional methods of selecting crops based on soil conditions or diagnosing plant diseases are prone to error, which leads to suboptimal yields and preventable crop losses. Additionally, gathering accurate weather and actionable advice usually requires consulting multiple fragmented sources.
+## Technology stack
 
-## 3. Solution
-Plant Pulse centralizes these solutions into a single, accessible platform. By combining traditional machine learning (Random Forest) for tabular soil data and deep learning (Convolutional Neural Networks) for image classification, the platform provides immediate, highly accurate answers. It complements these AI insights with a web portal featuring real-time external APIs for weather, news, and conversational guidance.
+| Component | Implementation |
+|---|---|
+| Crop recommendation | Python, Streamlit, pandas, scikit-learn RandomForestClassifier |
+| Disease identification | Python, Streamlit, TensorFlow/Keras, NumPy, Pillow |
+| Portal | HTML, CSS, JavaScript, Bootstrap |
+| External integrations | Gemini API, NewsAPI, Google Translate helper |
 
-## 4. Features
-- **🌾 Crop Recommendation System:** Input 7 soil and climate parameters to predict the best crop using a Random Forest model.
-- **🔬 Plant Disease Identification:** Upload an image of a leaf to detect diseases across 38 distinct classes using a pre-trained Keras CNN.
-- **🤖 AI Farming Chatbot:** Ask conversational farming questions powered by the Google Gemini 1.5 Flash API.
-- **🌤️ Real-Time Weather:** Get live localized weather forecasts via the OpenWeatherMap API.
-- **📰 Agricultural News:** Fetch crop-specific agricultural news via NewsAPI.
+## Repository structure
 
-## 5. Tech Stack
-- **Frontend:** HTML5, CSS3, Vanilla JavaScript, Bootstrap 5
-- **Machine Learning UI:** Python 3.12, Streamlit
-- **Model Training / Inference:** scikit-learn (Random Forest), TensorFlow/Keras (CNN), Pandas, NumPy
-- **APIs:** Google Gemini (LLM), OpenWeatherMap (Weather), NewsAPI (News), Google Cloud Translation (Multilingual)
+- `CROP-RECOMMENDATION/` — crop recommendation Streamlit app and CSV dataset.
+- `PLANT-DISEASE-IDENTIFICATION/` — disease prediction Streamlit app, model artifact, and training history.
+- `PLANTPULSE-web-app/` — static web portal and browser-side feature scripts.
+- `README.md` — project overview.
+- `PROJECT_INTERVIEW_GUIDE.md` — project/interview notes.
 
-## 6. Architecture
-The architecture is completely decoupled for modular development:
-- **PLANTPULSE-web-app:** A static HTML/JS frontend that acts as a central hub and directly calls external APIs (Weather, Chatbot, Translate).
-- **CROP-RECOMMENDATION:** A standalone Streamlit web application that handles tabular ML classification.
-- **PLANT-DISEASE-IDENTIFICATION:** A standalone Streamlit web application that handles image processing and CNN inference.
+## Run locally
 
-The central web portal links out to the two local Streamlit servers (`localhost:8501` and `localhost:8502`).
+Install Python dependencies separately for each Streamlit application (check the requirements file in the corresponding directory).
 
-## 7. Screenshots
-*(Add real project screenshots here)*
-- `Screenshot 1: Web Portal Dashboard`
-- `Screenshot 2: Crop Recommendation Input/Output`
-- `Screenshot 3: Plant Disease Detection Result`
+Crop recommendation:
 
-## 8. Demo
-*Currently running locally. (Link to video demo here if available)*
-
-## 9. Installation
-**Prerequisites:** Python 3.10+, Git.
-
-```bash
-git clone https://github.com/suhasshetti02/Plant-Pulse.git
-cd Plant-Pulse
-```
-
-## 10. Environment Variables
-For security, API keys are not included in the repository. You must provide your own keys to run the application fully.
-
-1. **Python Backend (Crop Recommendation)**
-Create a `.env` file in the `CROP-RECOMMENDATION/` directory:
-```env
-GEMINI_API_KEY="your_gemini_api_key_here"
-NEWS_API_KEY="your_newsapi_key_here"
-```
-
-2. **Frontend Web Portal**
-Open the following files and replace the placeholder text with your actual API keys:
-- `PLANTPULSE-web-app/index.html`: Add your Google Translate API Key on line 331.
-- `PLANTPULSE-web-app/chatbot/app.js`: Add your Gemini API Key on line 3.
-- `PLANTPULSE-web-app/weather-forecast/script.js`: Add your OpenWeatherMap API Key on line 16.
-
-## 11. Running Locally
-You will need to start the two Streamlit servers and open the static HTML file.
-
-**Start Crop Recommendation:**
 ```bash
 cd CROP-RECOMMENDATION
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
-**Start Plant Disease Identification:**
+Plant disease identification:
+
 ```bash
 cd PLANT-DISEASE-IDENTIFICATION
 pip install -r requirements.txt
 streamlit run main.py
 ```
 
-**Open the Web Portal:**
-Open `PLANTPULSE-web-app/index.html` in any modern web browser.
+Open `PLANTPULSE-web-app/index.html` in a browser. The portal's links must point to the actual local addresses/ports where the Streamlit apps are running.
 
-## 12. Testing
-Testing is currently manual. Navigate through the web portal to the respective Streamlit apps and verify inputs and outputs.
-- Test data for Crop Recommendation can be sourced from `CROP-RECOMMENDATION/Crop_recommendation.csv`.
-- Test images for Disease Identification can be found in `PLANT-DISEASE-IDENTIFICATION/test/`.
+## Important implementation notes
 
-## 13. Project Structure
-```text
-PLANT PULSE/
-├── CROP-RECOMMENDATION/          # Streamlit app for ML crop prediction
-│   ├── app.py                    
-│   └── Crop_recommendation.csv   # Dataset used for training
-├── PLANT-DISEASE-IDENTIFICATION/ # Streamlit app for CNN disease detection
-│   ├── main.py                   
-│   └── trained_plant_disease_model.keras
-├── PLANTPULSE-web-app/           # Static Hub web portal
-│   ├── index.html                
-│   ├── chatbot/                  
-│   └── weather-forecast/         
-└── README.md
-```
+- The crop classifier is fitted when the Python module loads; the code does not load a pre-trained serialized Random Forest artifact.
+- The disease app expects `trained_plant_disease_model.keras` and `Diseases.png` relative to its working directory.
+- The disease inference code resizes uploaded images to 128×128. The class-name list is embedded in the application.
+- The web portal includes a duplicate/older crop app under `CROP-RECOMMENDATION/CROP-RECOMMENDATION/webapp.py`. It is not the documented main entry point.
+- Training history is stored in `training_hist.json`; values in this file are historical training metrics, not independently reproduced benchmark results.
+- There is no shared application database or unified backend connecting the three parts.
 
-## 14. API Information
-The project consumes external APIs using the following endpoints:
-- **Gemini API:** `generativelanguage.googleapis.com` (POST)
-- **OpenWeatherMap API:** `api.openweathermap.org/data/2.5/weather` (GET)
-- **NewsAPI:** `newsapi.org/v2/everything` (GET)
-- **Google Translate API:** `translation.googleapis.com` (POST)
+## Security notice
 
-*Note: No internal APIs are exposed. The ML models are served directly via Streamlit UIs.*
+The repository has contained hard-coded third-party API credentials in an older/duplicate application file. Treat any credential committed to GitHub as exposed: revoke or rotate it with the provider, move replacement credentials into environment variables, and remove the old values from Git history. Never put API keys in browser-side JavaScript or committed source files.
 
-## 15. Database Information
-There is no traditional relational (SQL) or NoSQL database in this project. The system relies entirely on a flat CSV file (`Crop_recommendation.csv`) for the Crop Recommendation model.
+## Limitations and future work
 
-## 16. Limitations
-- **Decoupled Architecture:** The system relies on three separately running processes rather than a unified backend.
-- **Model Training Overheads:** The Random Forest model currently trains dynamically on script load rather than loading a serialized model.
-- **Hardcoded Routes:** The central hub requires the Streamlit apps to run on exactly ports 8501 and 8502.
+- Consolidate the portal and model applications behind a documented API.
+- Move external API calls and credentials to a secure server-side service.
+- Save and load the crop model rather than fitting it on every application start.
+- Add automated tests and a repeatable evaluation protocol for both models.
+- Validate image upload limits, model input assumptions, and error handling.
 
-## 17. Future Improvements
-- Centralize the architecture by replacing Streamlit with a unified backend (e.g., FastAPI) and exposing the ML models via REST APIs.
-- Pre-load and serialize the `RandomForestClassifier` using `joblib` to speed up initial inference times.
-- Move all client-side API requests (Weather, Chatbot) to the backend to completely obscure API keys from the browser.
+## License
 
----
-*Developed by Team PlantPulse.*
+See repository licensing and third-party model/dataset terms before redistribution.
