@@ -41,10 +41,14 @@ The architecture is completely decoupled for modular development:
 The central web portal links out to the two local Streamlit servers (`localhost:8501` and `localhost:8502`).
 
 ## 7. Screenshots
-*(Add real project screenshots here)*
-- `Screenshot 1: Web Portal Dashboard`
-- `Screenshot 2: Crop Recommendation Input/Output`
-- `Screenshot 3: Plant Disease Detection Result`
+
+<p align="center">
+  <img src="PLANTPULSE-web-app/images/User-Friendly.JPG" width="49%" alt="Plant Pulse web portal interface"/>
+  <img src="PLANTPULSE-web-app/images/crop-planning.jpg" width="49%" alt="Plant Pulse crop planning interface"/>
+</p>
+<p align="center">
+  <img src="PLANTPULSE-web-app/images/desease-dect.jpeg" width="70%" alt="Plant Pulse plant disease detection interface"/>
+</p>
 
 ## 8. Demo
 *Currently running locally. (Link to video demo here if available)*
